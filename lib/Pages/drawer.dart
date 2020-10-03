@@ -14,11 +14,11 @@ class DrawerWidget extends StatelessWidget {
           UserAccountsDrawerHeader(
             accountName: Text(
               "Sandip Shrivastava",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.w400),
             ),
             accountEmail: Text(
               "sandeepshrivastava518@gmail.com",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.w400),
             ),
             currentAccountPicture: CircleAvatar(
                 backgroundImage: NetworkImage(

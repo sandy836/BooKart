@@ -1,6 +1,8 @@
 import 'package:BooKart/Models/card_model.dart';
+import 'package:BooKart/Pages/book_category.dart';
 import 'package:BooKart/Pages/drawer.dart';
 import 'package:BooKart/Pages/fetch_data.dart';
+import 'package:BooKart/Pages/slider.dart';
 import 'package:BooKart/Pages/horizontal_listView.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +21,7 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           iconTheme: new IconThemeData(color: Colors.white)),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[300],
       body: FutureBuilder(
         future: getData(),
         builder:
@@ -31,11 +33,11 @@ class _HomePageState extends State<HomePage> {
           } else {
             return ListView(
               children: [
+                SliderCarousel(),
+                BookCategory(),
                 HorizontalListView(cardModel: snapshot.data),
                 HorizontalListView(cardModel: snapshot.data),
                 HorizontalListView(cardModel: snapshot.data),
-                HorizontalListView(cardModel: snapshot.data),
-                HorizontalListView(cardModel: snapshot.data)
               ],
             );
           }

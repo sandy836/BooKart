@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'BooKart',
       theme: ThemeData(
         primarySwatch: Colors.yellow,

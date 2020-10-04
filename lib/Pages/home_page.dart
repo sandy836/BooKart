@@ -1,4 +1,4 @@
-import 'package:BooKart/Pages/card_view_property.dart';
+import 'package:BooKart/Models/card_model.dart';
 import 'package:BooKart/Pages/drawer.dart';
 import 'package:BooKart/Pages/fetch_data.dart';
 import 'package:BooKart/Pages/horizontal_listView.dart';
@@ -10,17 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // ignore: avoid_init_to_null
-  var data = null;
-
-  @override
-  void initState() {
-    super.initState();
-    var _fetchDataObj = new FetchData();
-    data = _fetchDataObj.getData();
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,29 +20,26 @@ class _HomePageState extends State<HomePage> {
           ),
           iconTheme: new IconThemeData(color: Colors.white)),
       backgroundColor: Colors.white,
-      body: ListView(
-        children: [
-          HorizontalListView(
-            cardViewProperty:
-                CardViewProperty(httpResponseData: data, length: 10),
-          ),
-          HorizontalListView(
-            cardViewProperty:
-                CardViewProperty(httpResponseData: data, length: 10),
-          ),
-          HorizontalListView(
-            cardViewProperty:
-                CardViewProperty(httpResponseData: data, length: 10),
-          ),
-          HorizontalListView(
-            cardViewProperty:
-                CardViewProperty(httpResponseData: data, length: 10),
-          ),
-          HorizontalListView(
-            cardViewProperty:
-                CardViewProperty(httpResponseData: data, length: 10),
-          )
-        ],
+      body: FutureBuilder(
+        future: getData(),
+        builder:
+            (BuildContext context, AsyncSnapshot<List<CardModel>> snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return ListView(
+              children: [
+                HorizontalListView(cardModel: snapshot.data),
+                HorizontalListView(cardModel: snapshot.data),
+                HorizontalListView(cardModel: snapshot.data),
+                HorizontalListView(cardModel: snapshot.data),
+                HorizontalListView(cardModel: snapshot.data)
+              ],
+            );
+          }
+        },
       ),
       drawer: DrawerWidget(),
     );

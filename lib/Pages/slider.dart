@@ -10,23 +10,23 @@ class SliderCarousel extends StatelessWidget {
       items: [
         GenericImageContainer(
           imagesName: 'carousel_slider_1.jpg',
-          baseImageDir: base_image_dir,
+          baseImageDir: baseImageDir,
         ),
         GenericImageContainer(
           imagesName: 'carousel_slider_2.jpg',
-          baseImageDir: base_image_dir,
+          baseImageDir: baseImageDir,
         ),
         GenericImageContainer(
           imagesName: 'carousel_slider_3.jpg',
-          baseImageDir: base_image_dir,
+          baseImageDir: baseImageDir,
         ),
         GenericImageContainer(
           imagesName: 'carousel_slider_4.jpg',
-          baseImageDir: base_image_dir,
+          baseImageDir: baseImageDir,
         ),
         GenericImageContainer(
           imagesName: 'carousel_slider_5.jpg',
-          baseImageDir: base_image_dir,
+          baseImageDir: baseImageDir,
         ),
       ],
       options: CarouselOptions(

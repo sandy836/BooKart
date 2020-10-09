@@ -45,6 +45,9 @@ class DrawerWidget extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.w400),
             ),
           ),
+          Divider(
+            thickness: 1.0,
+          ),
           ListTile(
             leading: Icon(Icons.train),
             title: Text(
@@ -65,6 +68,9 @@ class DrawerWidget extends StatelessWidget {
               "Refer & Earn",
               style: TextStyle(fontWeight: FontWeight.w400),
             ),
+          ),
+          Divider(
+            thickness: 1.0,
           ),
           ListTile(
             leading: Icon(Icons.contacts),
@@ -93,6 +99,9 @@ class DrawerWidget extends StatelessWidget {
               "Share App",
               style: TextStyle(fontWeight: FontWeight.w400),
             ),
+          ),
+          Divider(
+            thickness: 1.0,
           ),
           ListTile(
             leading: Icon(Icons.question_answer),

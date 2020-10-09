@@ -1,25 +1,35 @@
 import 'package:BooKart/Models/card_model.dart';
-import 'package:BooKart/Pages/cart.dart';
+import 'package:BooKart/util/generic_card.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class HorizontalListView extends StatefulWidget {
+class GenericListView extends StatefulWidget {
   List<CardModel> cardModel;
-  HorizontalListView({Key key, @required this.cardModel}) : super(key: key);
+  var align;
+  GenericListView({Key key, @required this.cardModel, @required this.align})
+      : super(key: key);
   @override
-  _HorizontalListViewState createState() => _HorizontalListViewState();
+  _GenericListViewState createState() => _GenericListViewState();
 }
 
-class _HorizontalListViewState extends State<HorizontalListView> {
+class _GenericListViewState extends State<GenericListView> {
   @override
   Widget build(BuildContext context) {
     var httpResponseData = widget.cardModel;
+    // ignore: avoid_init_to_null
+    var scrollType;
+    //Horizontal
+    if (widget.align == 1) {
+      scrollType = Axis.horizontal;
+    } else {
+      scrollType = Axis.vertical;
+    }
     return Container(
       margin: const EdgeInsets.only(top: 5.0),
       height: 200.0,
       child: ListView.builder(
         itemCount: httpResponseData.length,
-        scrollDirection: Axis.horizontal,
+        scrollDirection: scrollType,
         itemBuilder: (BuildContext context, int index) => Container(
           width: 300.0,
           child: CardWidget(

@@ -1,3 +1,4 @@
+import 'package:BooKart/util/generic_gridView.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -20,14 +21,18 @@ class _GenericIconContainerState extends State<GenericIconContainer> {
     return Column(
       children: <Widget>[
         Container(
-          height: 40.0,
-          width: 40.0,
           margin: const EdgeInsets.only(top: 10.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(5.0)),
-            image: DecorationImage(
-              image: AssetImage(widget.baseImageDir + widget.imagesName),
-              fit: BoxFit.cover,
+          child: Ink.image(
+            image: AssetImage(widget.baseImageDir + widget.imagesName),
+            fit: BoxFit.cover,
+            width: 50.0,
+            height: 50.0,
+            child: InkWell(
+              splashColor: Colors.white70,
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => GenericGridView()));
+              },
             ),
           ),
         ),
@@ -36,7 +41,7 @@ class _GenericIconContainerState extends State<GenericIconContainer> {
         ),
         Text(
           widget.iconName,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 8.0),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10.0),
         )
       ],
     );

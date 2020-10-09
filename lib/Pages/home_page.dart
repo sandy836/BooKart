@@ -1,9 +1,10 @@
 import 'package:BooKart/Models/card_model.dart';
-import 'package:BooKart/Pages/book_category.dart';
+import 'package:BooKart/Pages/book_academics.dart';
+import 'package:BooKart/Pages/book_by_exam_category.dart';
 import 'package:BooKart/Pages/drawer.dart';
 import 'package:BooKart/Pages/fetch_data.dart';
 import 'package:BooKart/Pages/slider.dart';
-import 'package:BooKart/Pages/horizontal_listView.dart';
+import 'package:BooKart/util/generic_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,12 +16,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text(
-            "BooKart",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          iconTheme: new IconThemeData(color: Colors.white)),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100.0),
+        child: GenericAppBar(
+          appBarName: "BooKart",
+        ),
+      ),
       backgroundColor: Colors.grey[300],
       body: FutureBuilder(
         future: getData(),
@@ -34,10 +35,9 @@ class _HomePageState extends State<HomePage> {
             return ListView(
               children: [
                 SliderCarousel(),
-                BookCategory(),
-                HorizontalListView(cardModel: snapshot.data),
-                HorizontalListView(cardModel: snapshot.data),
-                HorizontalListView(cardModel: snapshot.data),
+                BookExamCategory(),
+                BookAcademics(),
+                // GenericListView(cardModel: snapshot.data, align: 1)
               ],
             );
           }

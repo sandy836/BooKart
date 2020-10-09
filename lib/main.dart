@@ -10,6 +10,9 @@ void main() {
         primarySwatch: Colors.yellow,
       ),
       home: HomePage(),
+      // routes: <String, WidgetBuilder>{
+      //   "/BookList": (BuildContext context) => GenericGridView(),
+      // },
     ),
   );
 }

@@ -2,17 +2,17 @@ import 'package:BooKart/util/generic_icon_container.dart';
 import 'package:flutter/material.dart';
 import 'package:BooKart/util/const.dart';
 
-class BookCategory extends StatefulWidget {
+class BookExamCategory extends StatefulWidget {
   @override
-  _BookCategoryState createState() => _BookCategoryState();
+  _BookExamCategoryState createState() => _BookExamCategoryState();
 }
 
-class _BookCategoryState extends State<BookCategory> {
+class _BookExamCategoryState extends State<BookExamCategory> {
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 10.0, left: 5.0, right: 5.0),
-      height: 330.0,
+      height: 350.0,
       child: Card(
         child: Container(
           child: Column(
@@ -22,9 +22,9 @@ class _BookCategoryState extends State<BookCategory> {
                 child: Container(
                   margin: const EdgeInsets.only(top: 10.0, left: 10.0),
                   child: Text(
-                    "Books Catagory",
+                    "Shop by Exams Category",
                     style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
                   ),
                 ),
               ),
@@ -38,74 +38,74 @@ class _BookCategoryState extends State<BookCategory> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "upsc_.png",
                     iconName: "UPSC",
                   ),
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "banking_.png",
                     iconName: "Banking",
                   ),
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "govt_.png",
                     iconName: "Govt Exam",
                   ),
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "law_.png",
                     iconName: "Law",
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "engineering_.png",
                     iconName: "Engineering",
                   ),
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "management_.png",
                     iconName: "Management",
                   ),
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "medical_.png",
                     iconName: "Medical",
                   ),
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "administration_.png",
                     iconName: "State Exam",
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "entrance_.png",
                     iconName: "Foreign Exam",
                   ),
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "defence_.png",
                     iconName: "Defence",
                   ),
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "software_.png",
-                    iconName: "Software",
+                    iconName: "  Software\nCertifaction",
                   ),
                   GenericIconContainer(
-                    baseImageDir: base_icon_dir,
+                    baseImageDir: baseImageDir,
                     imagesName: "finance_.png",
                     iconName: "Finance",
                   )

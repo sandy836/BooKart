@@ -1,5 +1,4 @@
 import 'package:BooKart/Models/card_model.dart';
-import 'package:BooKart/Pages/book_academics.dart';
 import 'package:flutter/services.dart';
 import 'package:BooKart/Pages/book_by_exam_category.dart';
 import 'package:BooKart/Pages/drawer.dart';
@@ -69,6 +68,38 @@ class _HomePageState extends State<HomePage> {
             );
           }
         },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.blue,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.black),
+            // ignore: deprecated_member_use
+            title: Text(
+              "Home",
+              style:
+                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search, color: Colors.black),
+            // ignore: deprecated_member_use
+            title: Text(
+              "Search",
+              style:
+                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart, color: Colors.black),
+            // ignore: deprecated_member_use
+            title: Text(
+              "Cart",
+              style:
+                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
+            ),
+          ),
+        ],
       ),
       drawer: DrawerWidget(),
     );

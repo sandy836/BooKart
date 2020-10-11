@@ -29,7 +29,7 @@ class _GenericListViewState extends State<GenericListView> {
       scrollType = Axis.vertical;
     }
     return Container(
-      margin: const EdgeInsets.only(top: 5.0),
+      padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
       height: 270.0,
       child: ListView.builder(
         shrinkWrap: true,

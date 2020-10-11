@@ -11,7 +11,7 @@ class _BookExamCategoryState extends State<BookExamCategory> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10.0, left: 5.0, right: 5.0),
+      margin: const EdgeInsets.only(top: 5.0, left: 2.0, right: 2.0),
       height: 350.0,
       child: Card(
         child: Container(
@@ -38,74 +38,74 @@ class _BookExamCategoryState extends State<BookExamCategory> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "upsc_.png",
                     iconName: "UPSC",
                   ),
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "banking_.png",
                     iconName: "Banking",
                   ),
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "govt_.png",
                     iconName: "Govt Exam",
                   ),
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "law_.png",
                     iconName: "Law",
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "engineering_.png",
                     iconName: "Engineering",
                   ),
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "management_.png",
                     iconName: "Management",
                   ),
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "medical_.png",
                     iconName: "Medical",
                   ),
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "administration_.png",
                     iconName: "State Exam",
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "entrance_.png",
                     iconName: "Foreign Exam",
                   ),
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "defence_.png",
                     iconName: "Defence",
                   ),
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "software_.png",
                     iconName: "  Software\nCertifaction",
                   ),
                   GenericIconContainer(
-                    baseImageDir: baseImageDir,
+                    baseImageDir: baseIconDir,
                     imagesName: "finance_.png",
                     iconName: "Finance",
                   )

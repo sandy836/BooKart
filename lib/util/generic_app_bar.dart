@@ -15,7 +15,7 @@ class _GenericAppBarState extends State<GenericAppBar> {
     return AppBar(
       title: Text(
         widget.appBarName,
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
       ),
       iconTheme: new IconThemeData(color: Colors.white),
     );

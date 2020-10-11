@@ -36,7 +36,7 @@ class SliderCarousel extends StatelessWidget {
           reverse: true,
           enlargeCenterPage: true,
           scrollDirection: Axis.horizontal,
-          viewportFraction: 0.8),
+          viewportFraction: 0.85),
     );
   }
 }

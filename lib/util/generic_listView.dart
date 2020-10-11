@@ -26,12 +26,13 @@ class _GenericListViewState extends State<GenericListView> {
     }
     return Container(
       margin: const EdgeInsets.only(top: 5.0),
-      height: 200.0,
+      height: 270.0,
       child: ListView.builder(
+        shrinkWrap: true,
         itemCount: httpResponseData.length,
         scrollDirection: scrollType,
         itemBuilder: (BuildContext context, int index) => Container(
-          width: 300.0,
+          width: 180.0,
           child: CardWidget(
             httpResponseData: httpResponseData,
             index: index,

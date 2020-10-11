@@ -7,7 +7,9 @@ void main() {
       debugShowCheckedModeBanner: false,
       title: 'BooKart',
       theme: ThemeData(
+        brightness: Brightness.light,
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.white,
       ),
       home: HomePage(),
       // routes: <String, WidgetBuilder>{

@@ -1,6 +1,8 @@
 import 'package:BooKart/Models/card_model.dart';
 import 'package:BooKart/Pages/fetch_data.dart';
+import 'package:BooKart/Pages/product_detail.dart';
 import 'package:BooKart/util/generic_card.dart';
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -22,6 +24,7 @@ class _GenericGridViewState extends State<GenericGridView> {
 
   @override
   Widget build(BuildContext context) {
+    ContainerTransitionType _transitionType = ContainerTransitionType.fade;
     var size = MediaQuery.of(context).size;
     /*24 is for notification bar on Android*/
     final double itemHeight = (size.height - kToolbarHeight * 2.0 - 24) / 2;
@@ -56,9 +59,17 @@ class _GenericGridViewState extends State<GenericGridView> {
                 crossAxisCount: 2,
               ),
               itemBuilder: (BuildContext context, int index) {
-                return CardWidget(
-                  httpResponseData: snapshot.data,
-                  index: index,
+                return OpenContainer(
+                  tappable: false,
+                  transitionType: _transitionType,
+                  closedBuilder: (context, openContainer) {
+                    return CardWidget(
+                        httpResponseData: snapshot.data,
+                        index: index,
+                        openContainer: openContainer);
+                  },
+                  openBuilder: (context, openContainer) =>
+                      ProductDetail(productDetails: snapshot.data[index]),
                 );
               },
             );

@@ -8,22 +8,17 @@ class CardWidget extends StatelessWidget {
       {Key key,
       @required this.httpResponseData,
       @required this.index,
+      @required this.productName,
+      @required this.price,
+      @required this.rating,
       @required this.openContainer})
       : super(key: key);
-  var rating = ([4.5, 3.5, 5.0, 3.0, 2.5].toList()..shuffle()).first;
-  var price = ([400, 3000, 500, 300, 2000].toList()..shuffle()).first;
-  var productName = ([
-    "Two States",
-    "The Monk Who Sold His Ferrari",
-    "Power of your Subconscious Mind",
-    "Attitude Is Everything",
-    "Think Like a Monk"
-  ].toList()
-        ..shuffle())
-      .first;
   final List<CardModel> httpResponseData;
   final int index;
   final VoidCallback openContainer;
+  final String productName;
+  final int price;
+  final double rating;
 
   @override
   Widget build(BuildContext context) {
@@ -50,19 +45,23 @@ class CardWidget extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 5.0, right: 5.0),
+                  padding: const EdgeInsets.only(top: 8.0, right: 8.0),
                   alignment: Alignment.topRight,
-                  child: (httpResponseData[index].albumId % 2 == 0)
-                      ? Icon(
-                          Icons.favorite,
-                          size: 20.0,
-                          color: Colors.red,
-                        )
-                      : Icon(
-                          Icons.favorite,
-                          size: 20.0,
-                          color: Colors.grey,
-                        ),
+                  child: CircleAvatar(
+                    radius: 15.0,
+                    backgroundColor: Colors.white70,
+                    child: (httpResponseData[index].albumId % 2 == 0)
+                        ? Icon(
+                            Icons.favorite,
+                            size: 20.0,
+                            color: Colors.red,
+                          )
+                        : Icon(
+                            Icons.favorite,
+                            size: 20.0,
+                            color: Colors.grey,
+                          ),
+                  ),
                 ),
                 Container(
                   padding: const EdgeInsets.only(left: 5.0, top: 170.0),
@@ -117,7 +116,6 @@ class CardWidget extends StatelessWidget {
               padding: const EdgeInsets.only(left: 5.0),
               child: Text(
                 "₹$price",
-                overflow: TextOverflow.ellipsis,
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
             ),

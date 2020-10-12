@@ -12,9 +12,6 @@ void main() {
         scaffoldBackgroundColor: Colors.white,
       ),
       home: HomePage(),
-      // routes: <String, WidgetBuilder>{
-      //   "/BookList": (BuildContext context) => GenericGridView(),
-      // },
     ),
   );
 }

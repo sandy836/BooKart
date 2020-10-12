@@ -1,4 +1,5 @@
 import 'package:BooKart/Models/card_model.dart';
+import 'package:BooKart/Models/fake_data_helper.dart';
 import 'package:BooKart/Pages/product_detail.dart';
 import 'package:BooKart/util/generic_card.dart';
 import 'package:animations/animations.dart';
@@ -35,9 +36,11 @@ class _GenericListViewState extends State<GenericListView> {
         shrinkWrap: true,
         itemCount: httpResponseData.length,
         scrollDirection: scrollType,
-        itemBuilder: (BuildContext context, int index) => Container(
-          width: 180.0,
-          child: OpenContainer(
+        itemBuilder: (BuildContext context, int index) {
+          var fakeDate = Fake().fakeData();
+          return Container(
+            width: 180.0,
+            child: OpenContainer(
               tappable: false,
               transitionType: _transitionType,
               closedBuilder: (context, openContainer) {
@@ -45,11 +48,22 @@ class _GenericListViewState extends State<GenericListView> {
                   httpResponseData: httpResponseData,
                   index: index,
                   openContainer: openContainer,
+                  price: fakeDate[1],
+                  rating: fakeDate[0],
+                  productName: fakeDate[2],
                 );
               },
-              openBuilder: (context, openContainer) =>
-                  ProductDetail(productDetails: httpResponseData[index])),
-        ),
+              openBuilder: (context, openContainer) => ProductDetail(
+                productDetails: httpResponseData,
+                productName: fakeDate[2],
+                productPrice: fakeDate[1],
+                productRating: fakeDate[0],
+                productOffpercent: fakeDate[3],
+                index: index,
+              ),
+            ),
+          );
+        },
       ),
     );
   }

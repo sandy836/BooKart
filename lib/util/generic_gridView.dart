@@ -1,4 +1,5 @@
 import 'package:BooKart/Models/card_model.dart';
+import 'package:BooKart/Models/fake_data_helper.dart';
 import 'package:BooKart/Pages/fetch_data.dart';
 import 'package:BooKart/Pages/product_detail.dart';
 import 'package:BooKart/util/generic_card.dart';
@@ -59,17 +60,28 @@ class _GenericGridViewState extends State<GenericGridView> {
                 crossAxisCount: 2,
               ),
               itemBuilder: (BuildContext context, int index) {
+                var fakeDate = Fake().fakeData();
                 return OpenContainer(
                   tappable: false,
                   transitionType: _transitionType,
                   closedBuilder: (context, openContainer) {
                     return CardWidget(
-                        httpResponseData: snapshot.data,
-                        index: index,
-                        openContainer: openContainer);
+                      httpResponseData: snapshot.data,
+                      index: index,
+                      openContainer: openContainer,
+                      price: fakeDate[1],
+                      productName: fakeDate[2],
+                      rating: fakeDate[0],
+                    );
                   },
-                  openBuilder: (context, openContainer) =>
-                      ProductDetail(productDetails: snapshot.data[index]),
+                  openBuilder: (context, openContainer) => ProductDetail(
+                    productDetails: snapshot.data,
+                    productName: fakeDate[2],
+                    productPrice: fakeDate[1],
+                    productRating: fakeDate[0],
+                    productOffpercent: fakeDate[3],
+                    index: index,
+                  ),
                 );
               },
             );

@@ -21,8 +21,9 @@ class DrawerWidget extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
             currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")),
+              backgroundImage: NetworkImage(
+                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),
+            ),
           ),
           ListTile(
             leading: Icon(Icons.home),

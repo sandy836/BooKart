@@ -1,4 +1,6 @@
 import 'package:BooKart/Models/card_model.dart';
+import 'package:BooKart/Pages/custom_circular_progess.dart';
+import 'package:BooKart/Pages/navigation_bar_bottom.dart';
 import 'package:flutter/services.dart';
 import 'package:BooKart/Pages/book_by_exam_category.dart';
 import 'package:BooKart/Pages/drawer.dart';
@@ -22,17 +24,6 @@ class _HomePageState extends State<HomePage> {
     ]);
   }
 
-  // @override
-  // dispose() {
-  //   SystemChrome.setPreferredOrientations([
-  //     DeviceOrientation.landscapeRight,
-  //     DeviceOrientation.landscapeLeft,
-  //     DeviceOrientation.portraitUp,
-  //     DeviceOrientation.portraitDown,
-  //   ]);
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,14 +38,14 @@ class _HomePageState extends State<HomePage> {
           iconTheme: new IconThemeData(color: Colors.white),
         ),
       ),
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.grey[200],
       body: FutureBuilder(
         future: getData(),
         builder:
             (BuildContext context, AsyncSnapshot<List<CardModel>> snapshot) {
           if (!snapshot.hasData) {
             return Center(
-              child: CircularProgressIndicator(),
+              child: CustomCircularProgressWidget(),
             );
           } else {
             return ListView(
@@ -62,45 +53,13 @@ class _HomePageState extends State<HomePage> {
               children: [
                 SliderCarousel(),
                 BookExamCategory(),
-                // BookAcademics(),
                 GenericListView(cardModel: snapshot.data, align: 1)
               ],
             );
           }
         },
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.black),
-            // ignore: deprecated_member_use
-            title: Text(
-              "Home",
-              style:
-                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
-            ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search, color: Colors.black),
-            // ignore: deprecated_member_use
-            title: Text(
-              "Search",
-              style:
-                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
-            ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart, color: Colors.black),
-            // ignore: deprecated_member_use
-            title: Text(
-              "Cart",
-              style:
-                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
-            ),
-          ),
-        ],
-      ),
+      bottomNavigationBar: NavigationBarButtom(),
       drawer: DrawerWidget(),
     );
   }

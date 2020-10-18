@@ -1,7 +1,9 @@
 import 'package:BooKart/Models/card_model.dart';
 import 'package:BooKart/Models/fake_data_helper.dart';
+import 'package:BooKart/Pages/custom_circular_progess.dart';
 import 'package:BooKart/Pages/fetch_data.dart';
-import 'package:BooKart/Pages/product_detail.dart';
+import 'package:BooKart/Pages/navigation_bar_bottom.dart';
+import 'package:BooKart/Pages/product/product_detail.dart';
 import 'package:BooKart/util/generic_card.dart';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +30,7 @@ class _GenericGridViewState extends State<GenericGridView> {
     ContainerTransitionType _transitionType = ContainerTransitionType.fade;
     var size = MediaQuery.of(context).size;
     /*24 is for notification bar on Android*/
-    final double itemHeight = (size.height - kToolbarHeight * 2.0 - 24) / 2;
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
     final double itemWidth = size.width / 2;
     return Scaffold(
       appBar: PreferredSize(
@@ -41,21 +43,21 @@ class _GenericGridViewState extends State<GenericGridView> {
           iconTheme: new IconThemeData(color: Colors.white),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       body: FutureBuilder(
         future: getData(),
         builder:
             (BuildContext context, AsyncSnapshot<List<CardModel>> snapshot) {
           if (!snapshot.hasData) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
+            return Center(child: CustomCircularProgressWidget());
           } else {
             return GridView.builder(
               padding: const EdgeInsets.only(top: 5.0),
               shrinkWrap: true,
               itemCount: snapshot.data.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisSpacing: 5.0,
+                mainAxisSpacing: 5.0,
                 childAspectRatio: (itemWidth / itemHeight),
                 crossAxisCount: 2,
               ),
@@ -75,12 +77,12 @@ class _GenericGridViewState extends State<GenericGridView> {
                     );
                   },
                   openBuilder: (context, openContainer) => ProductDetail(
-                    productDetails: snapshot.data,
                     productName: fakeDate[2],
                     productPrice: fakeDate[1],
                     productRating: fakeDate[0],
                     productOffpercent: fakeDate[3],
                     index: index,
+                    productUrl: snapshot.data[index].url,
                   ),
                 );
               },
@@ -88,6 +90,7 @@ class _GenericGridViewState extends State<GenericGridView> {
           }
         },
       ),
+      bottomNavigationBar: NavigationBarButtom(),
     );
   }
 }

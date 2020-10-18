@@ -1,6 +1,6 @@
 import 'package:BooKart/Models/card_model.dart';
 import 'package:BooKart/Models/fake_data_helper.dart';
-import 'package:BooKart/Pages/product_detail.dart';
+import 'package:BooKart/Pages/product/product_detail.dart';
 import 'package:BooKart/util/generic_card.dart';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +39,7 @@ class _GenericListViewState extends State<GenericListView> {
         itemBuilder: (BuildContext context, int index) {
           var fakeDate = Fake().fakeData();
           return Container(
+            padding: const EdgeInsets.only(left: 5.0),
             width: 180.0,
             child: OpenContainer(
               tappable: false,
@@ -54,12 +55,12 @@ class _GenericListViewState extends State<GenericListView> {
                 );
               },
               openBuilder: (context, openContainer) => ProductDetail(
-                productDetails: httpResponseData,
                 productName: fakeDate[2],
                 productPrice: fakeDate[1],
                 productRating: fakeDate[0],
                 productOffpercent: fakeDate[3],
                 index: index,
+                productUrl: httpResponseData[index].url,
               ),
             ),
           );

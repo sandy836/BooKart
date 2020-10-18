@@ -25,7 +25,6 @@ class CardWidget extends StatelessWidget {
     return InkWell(
       onTap: openContainer,
       child: Card(
-        elevation: 4.0,
         child: Column(
           children: [
             Stack(
